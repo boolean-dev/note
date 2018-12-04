@@ -8,7 +8,7 @@
 wget http://repo.mysql.com/mysql57-community-release-el7-10.noarch.rpm
 ```
 
-![安全组](./image/mysql-install_1.png)
+![安全组](../image/mysql-install_1.png)
 
 ### 2. 安装软件源
 
@@ -16,7 +16,7 @@ wget http://repo.mysql.com/mysql57-community-release-el7-10.noarch.rpm
 rpm -Uvh mysql57-community-release-el7-10.noarch.rpm
 ```
 
-![安全组](./image/mysql-install_2.png)
+![安全组](../image/mysql-install_2.png)
 
 ### 3. 安装Mysql服务端
 
@@ -24,7 +24,7 @@ rpm -Uvh mysql57-community-release-el7-10.noarch.rpm
 yum install  -y  mysql-community-server
 ```
 
-![安全组](./image/mysql-install_3.png)
+![安全组](../image/mysql-install_3.png)
 
 这一步需要从网络上下载数据，如果网速慢的话，可能需要一段时间
 
@@ -46,7 +46,7 @@ service mysqld status
 systemctl status mysqld.service
 ```
 
-![安全组](./image/mysql-install_4.png)
+![安全组](../image/mysql-install_4.png)
 
 ### 6. 修改Mysql密码
 
@@ -68,9 +68,9 @@ set global validate_password_length=1;
 ALTER USER 'root'@'localhost' IDENTIFIED BY '123456';
 ```
 
-![安全组](./image/mysql-install_6.png)
+![安全组](../image/mysql-install_6.png)
 
-![安全组](./image/mysql-install_7.png)
+![安全组](../image/mysql-install_7.png)
 
 ### 7. 授权其它机器登录
 
@@ -89,19 +89,19 @@ FLUSH  PRIVILEGES;
 
 - 登录阿里云后台，进入需要修改的主机，选择安全组
 
-  ![安全组](./image/mysql-install_8.png)
+  ![安全组](../image/mysql-install_8.png)
 
 - 配置规则
 
-  ![安全组](./image/mysql-install_9.png)
+  ![安全组](../image/mysql-install_9.png)
 
 - 添加规则
 
-  ![安全组](./image/mysql-install_10.png)
+  ![安全组](../image/mysql-install_10.png)
 
 - 查看规则是否生效
 
-  ![安全组](./image/mysql-install_11.png)
+  ![安全组](../image/mysql-install_11.png)
 
 ### 9. 开启防火墙(虚拟机)
 
