@@ -4,7 +4,7 @@
   - [java操作mongoTemplate查询数据库指定字段](./java/mongoTemplate查询指定字段.md)
 - linux
   - [CenterOS 安装java8](./linux/java安装.md)
-  - [CenterOS安装mysql](./mysql安装.md)
+  - [CenterOS安装mysql](./linux/mysql安装.md)
 
 - mongodb相关
   -  [mongodb常见查询](./mongodb/mongdb查询-blog.md)
