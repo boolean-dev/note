@@ -167,7 +167,13 @@
 
   `db.student.update({"_id":"T003"},{$set:{habit:["read","music"]}},{multi:true})`
 
+- 添加一个字段（url 代表表名 , 添加字段 content。 字符串类型）
 
+    `db.url.update({}, {$set: {content:""}}, {multi: 1})`
+
+- 删除一个字段
+
+    `db.url.update({},{$unset:{'content':''}},false, true)`
 
 ### 3.3  删除表中的数据
 
