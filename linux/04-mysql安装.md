@@ -37,7 +37,7 @@ service mysqld start
 systemctl start mysqld.service
 ```
 
-#### 5. 检测Mysql运行状态
+### 5. 检测Mysql运行状态
 
 ```sh
 #检测mysql服务运行状态
