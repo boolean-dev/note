@@ -119,8 +119,8 @@ export CATALINA_HOME=$CATALINA_8080_HOME
 参数如下:
 
 
-~~~sh
-```
+
+```sh
 ./configure \
 --prefix=/usr/local/nginx \
 --pid-path=/var/run/nginx/nginx.pid \
@@ -137,12 +137,12 @@ export CATALINA_HOME=$CATALINA_8080_HOME
 ```
 
 注：**上边将临时文件目录指定为/var/temp/nginx，需要在/var下创建temp及nginx目录**
-~~~
+
 ##### 4.2.3 编译安装
 
 ```sh
-`make`
-`make  install`
+make
+make  install
 ```
 
 #### 4.3 启动Nginx
@@ -173,10 +173,9 @@ export CATALINA_HOME=$CATALINA_8080_HOME
 
 ##### 4.6.1 编写shell文件
 
-~~~sh
+```sh
 `vi /etc/init.d/nginx`
 
-```
 #!/bin/bash
 # nginx Startup script for the Nginx HTTP Server
 # it is v.0.0.2 version.
@@ -251,13 +250,11 @@ status)
         exit 1
 esac
 exit $RETVAL
-~~~
-
-
 ```
-​```sh
+
+
+
 ![自启命令](https://img-blog.csdn.net/20180409152813251?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0Jvb2xlYW5pbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
-```
 
 ##### 4.6.2设置文件访问权限
 
@@ -268,9 +265,9 @@ exit $RETVAL
 ##### 4.6.3 加入到自动列表中
 
 ```sh
-`vi /etc/rc.local`
+vi /etc/rc.local
  
-加入一行  `/etc/init.d/nginx start`    保存并退出，下次重启会生效。
+加入一行  /etc/init.d/nginx start    保存并退出，下次重启会生效。
 ```
 
 
