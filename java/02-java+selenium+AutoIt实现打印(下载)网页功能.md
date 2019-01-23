@@ -144,9 +144,9 @@ System.setProperty("webdriver.chrome.driver",driverPath);
 
 调起浏览器的打印事件有以下两种方法：
 
-​	① 点击鼠标右键，然后点击打印按钮
+	① 点击鼠标右键，然后点击打印按钮
 
-​	②按住键盘的`Ctrl`+`P`
+	②按住键盘的`Ctrl`+`P`
 
 显而易见，第②中方法更实用，所以我们采用第②种
 
@@ -164,3 +164,76 @@ action.perform()//发送组合按键
 
 ![1548236953864](../image/1548236953864.png)
 
+所以，我就用以下方法来实现键盘事件`Ctrl`+`P`
+
+```java
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_P);
+        robot.keyRelease(KeyEvent.VK_P);
+        robot.keyRelease(KeyEvent.VK_CONTROL);
+```
+
+本以为事情终于解决了，然后才发现，SpringBoot无法启动这个键盘事件，百度之后，才发现有两种实现的办法
+
+①启动SpringBoot钱，给虚拟机添加参数`-ea -Djava.awt.headless=false`
+
+②在SpringBoot启动类中添加代码，开启awt
+
+```java
+public static void main(String[] args) {
+		System.setProperty("java.awt.headless", "false");
+		SpringApplication.run(SeleniumApplication.class, args);
+}
+```
+
+#### 1.5 进入保存界面
+
+
+
+打印界面进入保存界面只需要按下回车键，所以只需按照上一步操作键盘点击回车键就好了
+
+```java
+		Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_P);
+        robot.keyRelease(KeyEvent.VK_P);
+        robot.keyRelease(KeyEvent.VK_CONTROL);
+
+		//睡眠7S，因为谷歌浏览器进入打印要先进行渲染，这个需要一段时间
+        Thread.sleep(7000);
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
+```
+
+### 2 autolt
+
+AutoIt 目前最新是v3版本，这是一个使用类似BASIC[脚本语言](https://baike.baidu.com/item/%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80/1379708)的[免费软件](https://baike.baidu.com/item/%E5%85%8D%E8%B4%B9%E8%BD%AF%E4%BB%B6/599405),它设计用于Windows GUI([图形用户界面](https://baike.baidu.com/item/%E5%9B%BE%E5%BD%A2%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2/3352324))中进行自动化操作。它利用模拟键盘按键，鼠标移动和窗口/控件的组合来实现自动化任务。而这是其它语言不可能做到或无可靠方法实现的
+
+#### 2.1 autolt基本脚本语法
+
+进入到了另存为得界面，这个时候selenium就基本上无法进行操作了，因为selenium只对谷歌浏览器进行操作，不对window窗口进行操作，所以这个时候就需要autolt进行处理了。autolt是一个脚本语言，因为我们只需要保存一个文件，所以并不需要那么深入，所以下面我讲下autolt基本使用方法
+
+
+
+#### 2.2 autolt保存文件
+
+
+
+#### 2.3 autolt打包成exe
+
+
+
+#### 2.4 java运行exe文件
+
+```java
+//第一个参数是exe路径，后面是执行cmd得参数，这个也就是对应保存PDF的名称
+String[] commandArray = {"src/main/resources/driver/pdf.exe", sample.getCode() + ".pdf"};
+runtime.exec(commandArray);
+```
+
+
+
+### 3 结尾
+
+虽然我写的这个博客是关于java+selenium+autolt将html打印成PDF，但是也可以用到下载文件里边，原理是一样的。在进行爬虫的时候，经常要遇到下载文件的业务，这样可以很好的完成。
