@@ -145,7 +145,7 @@ System.setProperty("webdriver.chrome.driver",driverPath);
 调起浏览器的打印事件有以下两种方法：
 
 	① 点击鼠标右键，然后点击打印按钮
-
+	
 	②按住键盘的`Ctrl`+`P`
 
 显而易见，第②中方法更实用，所以我们采用第②种
@@ -214,15 +214,55 @@ AutoIt 目前最新是v3版本，这是一个使用类似BASIC[脚本语言](htt
 
 进入到了另存为得界面，这个时候selenium就基本上无法进行操作了，因为selenium只对谷歌浏览器进行操作，不对window窗口进行操作，所以这个时候就需要autolt进行处理了。autolt是一个脚本语言，因为我们只需要保存一个文件，所以并不需要那么深入，所以下面我讲下autolt基本使用方法
 
+##### 2.1.1 安装完软件之后，各个文件的作用
 
+![1548292152499](../image/1548292152499.png)
+
+- 编辑器：用于编写脚本语言，并且进行调试，按住`F5`进行调试
+- 运行器：将脚本语言进行运行
+- 转脚本为exe：将编写的脚本转换成exe文件，用于java或者python直接运行
+- 查看窗口信息：用于获取将要操作窗口的基本信息，例如将要操作按钮和编辑框的信息等等
+
+##### 2.1.2 查看窗口信息
+
+![1548292617073](../image/1548292617073.png)
+
+查看窗口信息的方法：按住Finder Tool的，然后拖拽到你要操作的位置，这个时候查看Control窗口，就能得到你要操作的元素信息
+
+- Title：当前窗口的标题
+- Calss：当前元素的类型，例如当前窗口为编辑框，则这里显示Edit
+- Instance:这个是这个窗口的第一个Edit，所以Instance为1
+- ClassnameNN：可以作为当前元素的唯一id，但是没有AdvancedModel准确
 
 #### 2.2 autolt保存文件
+
+```sh
+#该脚本的语法是：  ;分号代表注释,为了博客好看，我先把;换成#
+##ControlFocus ( "title", "窗口文本", controlID)   设置输入焦点到指定窗口的某个控件上
+#WinWait ( "title题" , "窗口文本" , 超时时间 )  暂停脚本的执行直至指定窗口存在（出现）为止
+#ControlSetText ( "title", "窗口文本", controlID, "新文本" )   修改指定控件的文本
+#Sleep ( 延迟 )   使脚本暂停指定时间段
+#ControlClick ( "title", "窗口文本", 控件ID , 按钮 , 点击次数 )   向指定控件发送鼠标点击命令
+#其中，title即AutoIt Window Info识别出的Title字段，controlID即AutoIt Window Info识别
+#出的Class和Instance的拼接，如上图拼接后的结果应为：Button1
+#ControlClick(
+#ControlClick("另存为","保存","Button2")
+
+ControlFocus("另存为","text","1001")
+WinWait("[CLASS:#32770]","",100)
+ControlSetText("另存为","","[CLASS:Edit; INSTANCE:1]","$CmdLine[1]")
+Sleep(1500)
+ControlClick("另存为","保存","Button2")
+
+
+
+```
 
 
 
 #### 2.3 autolt打包成exe
 
-
+运行转脚本为exe的文件，将其转换成exe文件，放入resource目录下的driver下面
 
 #### 2.4 java运行exe文件
 
