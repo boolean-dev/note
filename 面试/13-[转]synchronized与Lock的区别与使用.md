@@ -1,5 +1,7 @@
 # 详解synchronized与Lock的区别与使用
 
+**该博客转载自[淳安郭富城](https://blog.csdn.net/u012403290)的[详解synchronized与Lock的区别与使用](https://blog.csdn.net/u012403290/article/details/64910926)**
+
 ### 1. 引言：
 
 昨天在学习别人分享的面试经验时，看到Lock的使用。想起自己在上次面试也遇到了synchronized与Lock的区别与使用。于是，我整理了两者的区别和使用情况，同时，对synchronized的使用过程一些常见问题的总结，最后是参照源码和说明文档，对Lock的使用写了几个简单的Demo。请大家批评指正。
