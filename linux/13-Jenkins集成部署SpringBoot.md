@@ -53,25 +53,25 @@ docker run \
 
 1. 浏览器打开Jenkins地址`(http://127.0.0.1/):8080`
 
-![image1.png](https://img.hacpai.com/file/2019/08/image1-658060b8.png)
+![image1.png](https://boolean-dev.oss-cn-hangzhou.aliyuncs.com/blog/image/2020-02/image1-658060b8.png)
 
 找到Jenkins映射目录，找到相应文件，查看密码，登录
 
 2. 安装插件，一般直接选择推荐的插件安装
 
-![image2.png](https://img.hacpai.com/file/2019/08/image2-2611a044.png)
+![image2.png](https://boolean-dev.oss-cn-hangzhou.aliyuncs.com/blog/image/2020-02/image2-2611a044.png)
 
 3. 安装插件较慢，等待片刻即可
 
-![image3.png](https://img.hacpai.com/file/2019/08/image3-94cfb863.png)
+![image3.png](https://boolean-dev.oss-cn-hangzhou.aliyuncs.com/blog/image/2020-02/image3-94cfb863.png)
 
 4. 创建系统管理员
 
-![image4.png](https://img.hacpai.com/file/2019/08/image4-23bf8e9d.png)
+![image4.png](https://boolean-dev.oss-cn-hangzhou.aliyuncs.com/blog/image/2020-02/image4-23bf8e9d.png)
 
 5. 安装完成，进入下一步
 
-![image5.png](https://img.hacpai.com/file/2019/08/image5-995f4066.png)
+![image5.png](https://boolean-dev.oss-cn-hangzhou.aliyuncs.com/blog/image/2020-02/image5-995f4066.png)
 
 ### 2.3 配置相应的Jenkins
 
@@ -83,7 +83,7 @@ docker run \
 
 进入设置->全局工具设置
 
-![image6.png](https://img.hacpai.com/file/2019/08/image6-912ce2ac.png)
+![image6.png](https://boolean-dev.oss-cn-hangzhou.aliyuncs.com/blog/image/2020-02/image6-912ce2ac.png)
 
 这里我安装的是maven3.6.1
 
@@ -395,7 +395,7 @@ under the License.
 
 添加环境变量
 
-![image7.png](https://img.hacpai.com/file/2019/08/image7-24993d55.png)
+![image7.png](https://boolean-dev.oss-cn-hangzhou.aliyuncs.com/blog/image/2020-02/image7-24993d55.png)
 
 添加的环境变量为:
 
@@ -522,7 +522,7 @@ CMD echo "The application is starting..." && \
 
 填写Github的项目地址即可
 
-![image8.png](https://img.hacpai.com/file/2019/08/image8-8a9e26f5.png)
+![image8.png](https://boolean-dev.oss-cn-hangzhou.aliyuncs.com/blog/image/2020-02/image8-8a9e26f5.png)
 
 ### 3.2 项目构建参数
 
@@ -547,7 +547,7 @@ CMD echo "The application is starting..." && \
 
     
 
-![image9.png](https://img.hacpai.com/file/2019/08/image9-dbd4d25b.png)
+![image9.png](https://boolean-dev.oss-cn-hangzhou.aliyuncs.com/blog/image/2020-02/image9-dbd4d25b.png)
 
 > 注：第一次执行shell的时候，因为springboot容器还未运行，所以无需停止和移除。所以第二次构建容器的时候，运行前需提前停止和移除容器，所以采用以下的shell
 >
@@ -571,11 +571,11 @@ CMD echo "The application is starting..." && \
 
 构建完成后，在宿主机上执行`docker ps`查看容器是否运行
 
-![image11.png](https://img.hacpai.com/file/2019/08/image11-8c2904cd.png)
+![image11.png](https://boolean-dev.oss-cn-hangzhou.aliyuncs.com/blog/image/2020-02/image11-8c2904cd.png)
 
 如图，部署成功了
 
-![image10.png](https://img.hacpai.com/file/2019/08/image10-cffb51cd.png)
+![image10.png](https://boolean-dev.oss-cn-hangzhou.aliyuncs.com/blog/image/2020-02/image10-cffb51cd.png)
 
 ## 4. 后记
 
